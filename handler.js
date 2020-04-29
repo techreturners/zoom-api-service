@@ -3,8 +3,11 @@ const serverless = require('serverless-http');
 const express = require('express')
 const app = express()
 const axios = require('axios');
+const cors = require('cors');
+
 
 app.use(express.json());
+app.use(cors());
 
 app.post('/zoom', function (req, res) {
   const payload = {
