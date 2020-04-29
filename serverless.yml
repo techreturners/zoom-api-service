@@ -1,4 +1,3 @@
-
 service: zoom-api-service
 provider:
   name: aws
@@ -8,7 +7,10 @@ provider:
 functions:
   zoom:
     handler: handler.zoom
+    environment: 
+      ZOOM_API_KEY: ${opt:ZOOM_API_KEY}
+      ZOOM_API_SECRET: ${opt:ZOOM_API_SECRET}
     events:
       - http:
           path: zoom
-          method: get
+          method: post
